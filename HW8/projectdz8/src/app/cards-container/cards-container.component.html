@@ -1,0 +1,25 @@
+<input type="text" [(ngModel)]="filter" (ngModelChange)="filterProducts()" placeholder="Поиск по названию...">
+
+<select [(ngModel)]="sortOption" (change)="applySort()">
+  <option value="">Выберите сортировку</option>
+  <option value="nameAsc">Сортировать по названию (возрастание)</option>
+  <option value="nameDesc">Сортировать по названию (убывание)</option>
+  <option value="maxPrice">Сортировать по макс. цене</option>
+  <option value="minPrice">Сортировать по мин. цене</option>
+</select>
+
+
+<div class="products-grid">
+  <div class="product-card" *ngFor="let product of filteredProducts">
+    <strong>{{ product.name }}</strong>
+    <img src="{{ product.image }}">
+    <p>(Price: {{ product.price }})</p>
+    <p>{{ product.description }}</p>
+  </div>
+</div>
+
+<!--<ul>-->
+<!--  <li *ngFor="let product of filteredProducts">-->
+<!--    <strong>{{ product.name }}</strong> (Price: {{ product.price }}) - {{ product.description }}-->
+<!--  </li>-->
+<!--</ul>-->
